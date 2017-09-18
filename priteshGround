@@ -1,0 +1,497 @@
+//: Playground - noun: a place where people can play
+
+import UIKit
+
+var str = "Hello, playground"
+var myName = "Pritesh"
+myName = "Pritesh Patel"
+//error: invalid redeclaration of 'myName'
+//var myName = "Patel Pritesh"
+
+let name = "Pritesh"
+//error: cannot assign to value: 'name' is a 'let' constant
+//name = "My new Name is Pritesh Patel"
+
+
+var age: Int
+age = 25
+//error: cannot assign value of type 'Int' to type 'String'
+//myName = 25
+//error: cannot assign value of type 'String' to type 'Int'
+//age = "Time McGraw"
+
+var a = 10
+a = a + 1
+a = a - 1
+a = a * a
+
+var name1 = "Tim McGraw"
+var name2 = "Romeo"
+var both = name1 + " and " + name2
+
+"Your name is \(myName)"
+"Your name is " + myName
+var latitude = 36.166667
+
+"Your name is \(myName), your age is \(age), and your latitude is \(latitude)"
+"You are \(age) years old. In another \(age) years you will be \(age * 2)."
+
+//Arrays
+
+var evenNumbers = [2, 4, 6, 8]
+var songs = ["Shake it Off", "You Belong with Me", "Back to December"]
+
+songs[0]
+songs[1]
+songs[2]
+
+type(of: songs)
+
+//var songs: [String] = ["Shake it Off", "You Belong with Me", "Back to December", 3]
+//var songs: [Any] = ["Shake it Off", "You Belong with Me", "Back to December", 3]
+
+var songs2 = ["Today was a Fairytale", "Welcome to New York", "Fifteen"]
+var bothArray = songs + songs2
+bothArray += ["Everything has Changed"]
+
+//Dictonaries
+var person = ["first": "Taylor", "middle": "Alison", "last": "Swift", "month": "December", "website": "taylorswift.com"]
+person["middle"]
+person["month"]
+
+//Conditions
+
+var action: String
+var newPerson = "hater"
+
+if newPerson == "hater" {
+    action = "hate"
+}
+
+var stayOutTooLate = true
+var nothingInBrain = true
+
+if stayOutTooLate && nothingInBrain {
+    action = "cruise"
+}
+
+//Loops
+
+for i in 1...10 {
+    print("\(i) x 10 is \(i * 10)")
+}
+
+var mystr = "Fakers gonna"
+
+for _ in 1 ... 5 {
+    mystr += " fake"
+}
+
+print(mystr)
+
+//Loop over arrays
+for song in songs {
+    print("My favorite song is \(song)")
+}
+
+var people = ["players", "haters", "heart-breakers", "fakers"]
+var actions = ["play", "hate", "break", "fake"]
+
+
+//1
+for i in 0 ..< people.count {
+    print("\(people[i]) gonna \(actions[i])")
+}
+
+
+//2
+for i in 0 ..< people.count {
+    var str = "\(people[i]) gonna"
+    
+    for _ in 1 ... 5 {
+        str += " \(actions[i])"
+    }
+    
+    print(str)
+}
+
+//3
+var counter = 0
+
+while true {
+    print("Counter is now \(counter)")
+    counter += 1
+    
+    if counter == 556 {
+        break
+    }
+}
+
+//4
+for song in songs {
+    if song == "You Belong with Me" {
+        continue
+    }
+    
+    print("My favorite song is \(song)")
+}
+
+//Switch
+let liveAlbums = 2
+
+switch liveAlbums {
+case 0:
+    print("You're just starting out")
+    
+case 1:
+    print("You just released iTunes Live From SoHo")
+    
+case 2:
+    print("You just released Speak Now World Tour")
+    
+default:
+    print("Have you done something new?")
+}
+
+//
+let studioAlbums = 5
+
+switch studioAlbums {
+case 0...1:
+    print("You're just starting out")
+    
+case 2...3:
+    print("You're a rising star")
+    
+case 4...5:
+    print("You're world famous!")
+    
+default:
+    print("Have you done something new?")
+}
+
+//Functions
+
+//1
+func favoriteAlbum() {
+    print("My favorite is Fearless")
+}
+favoriteAlbum()
+
+//2
+func favoriteAlbum(name: String) {
+    print("My favorite is \(name)")
+}
+
+favoriteAlbum(name: "Fearless")
+
+//3
+func printAlbumRelease(name: String, year: Int) {
+    print("\(name) was released in \(year)")
+}
+
+printAlbumRelease(name: "Fearless", year: 2008)
+printAlbumRelease(name: "Speak Now", year: 2010)
+printAlbumRelease(name: "Red", year: 2012)
+
+//4
+func countLettersInString(string: String) {
+    print("The string \(string) has \(string.characters.count) letters.")
+}
+countLettersInString(string: "Hello")
+
+//5
+func countLettersInString(myString str: String) {
+    print("The string \(str) has \(str.characters.count) letters.")
+}
+
+countLettersInString(myString: "Hello")
+
+//6
+func countLettersInString(_ str: String) {
+    print("The string \(str) has \(str.characters.count) letters.")
+}
+
+countLettersInString("Hello")
+
+//7
+func countLetters(in string: String) {
+    print("The string \(string) has \(string.characters.count) letters.")
+}
+countLetters(in: "Hello")
+
+//8
+func albumsIsTaylor(name: String) -> Bool {
+    if name == "Taylor Swift" { return true }
+    if name == "Fearless" { return true }
+    if name == "Speak Now" { return true }
+    if name == "Red" { return true }
+    if name == "1989" { return true }
+    
+    return false
+}
+
+
+if albumsIsTaylor(name: "Red") {
+    print("That's one of hers!")
+} else {
+    print("Who made that?!")
+}
+
+if albumsIsTaylor(name: "Blue") {
+    print("That's one of hers!")
+} else {
+    print("Who made that?!")
+}
+
+
+//Optionals
+//https://www.hackingwithswift.com/read/0/12/optionals
+//https://www.hackingwithswift.com/read/0/13/optional-chaining
+func getHaterStatus() -> String {
+    return "Hate"
+}
+func getHaterStatus() -> String? {
+    return "Hate"
+}
+
+func getHaterStatus(weather: String) -> String? {
+    if weather == "sunny" {
+        return nil
+    } else {
+        return "Hate"
+    }
+}
+
+//var status: String
+//status = getHaterStatus(weather: "rainy")
+
+var status: String?
+status = getHaterStatus(weather: "rainy")
+var status2 = getHaterStatus(weather: "rainy")
+
+
+//Enumerations
+//https://www.hackingwithswift.com/read/0/14/enumerations
+//1
+enum WeatherType {
+    case sun, cloud, rain, wind, snow
+}
+
+func getHaterStatus(weather: WeatherType) -> String? {
+    if weather == WeatherType.sun {
+        return nil
+    } else {
+        return "Hate"
+    }
+}
+
+getHaterStatus(weather: WeatherType.cloud)
+
+//2
+/*
+enum WeatherType {
+    case sun
+    case cloud
+    case rain
+    case wind
+    case snow
+}
+
+func getHaterStatus(weather: WeatherType) -> String? {
+    if weather == .sun {
+        return nil
+    } else {
+        return "Hate"
+    }
+}
+
+getHaterStatus(weather: .cloud)
+ */
+
+//Structs
+//https://www.hackingwithswift.com/read/0/15/structs
+
+//1
+struct Person {
+    var clothes: String
+    var shoes: String
+}
+let taylor = Person(clothes: "T-shirts", shoes: "sneakers")
+let other = Person(clothes: "short skirts", shoes: "high heels")
+
+print(taylor.clothes)
+print(other.shoes)
+
+//Classes
+class People {
+    var clothes: String
+    var shoes: String
+    
+    init(clothes: String, shoes: String) {
+        self.clothes = clothes
+        self.shoes = shoes
+    }
+}
+
+class Singer {
+    var name: String
+    var age: Int
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+    
+    func sing() {
+        print("La la la la")
+    }
+}
+
+var mytaylor = Singer(name: "Taylor", age: 25)
+mytaylor.name
+mytaylor.age
+mytaylor.sing()
+
+
+//Inheritance
+class CountrySinger : Singer {
+override func sing() {
+    print("Trucks, guitars, and liquor")
+}
+}
+
+var taylor1 = CountrySinger(name: "Taylor", age: 25)
+taylor1.sing()
+
+//
+class HeavyMetalSinger : Singer {
+    var noiseLevel: Int
+    
+    init(name: String, age: Int, noiseLevel: Int) {
+        self.noiseLevel = noiseLevel
+        super.init(name: name, age: age)
+    }
+    
+    override func sing() {
+        print("Grrrrr rargh rargh rarrrrgh!")
+    }
+}
+
+//Properties
+//https://www.hackingwithswift.com/read/0/17/properties
+//https://www.hackingwithswift.com/read/0/18/static-properties-and-methods
+//https://www.hackingwithswift.com/read/0/19/access-control
+
+struct Customer {
+    var clothes: String {
+        willSet {
+            updateUI(msg: "I'm changing from \(clothes) to \(newValue)")
+        }
+        
+        didSet {
+            updateUI(msg: "I just changed from \(oldValue) to \(clothes)")
+        }
+    }
+}
+
+func updateUI(msg: String) {
+    print(msg)
+}
+
+var taylor2 = Customer(clothes: "T-shirts")
+taylor2.clothes = "short skirts"
+
+//Polymorphism and typecasting
+//https://www.hackingwithswift.com/read/0/20/polymorphism-and-typecasting
+
+class Album {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class StudioAlbum: Album {
+    var studio: String
+    
+    init(name: String, studio: String) {
+        self.studio = studio
+        super.init(name: name)
+    }
+}
+
+class LiveAlbum: Album {
+    var location: String
+    
+    init(name: String, location: String) {
+        self.location = location
+        super.init(name: name)
+    }
+}
+
+var taylorSwift = StudioAlbum(name: "Taylor Swift", studio: "The Castles Studios")
+var fearless = StudioAlbum(name: "Speak Now", studio: "Aimeeland Studio")
+var iTunesLive = LiveAlbum(name: "iTunes Live from SoHo", location: "New York")
+
+var allAlbums: [Album] = [taylorSwift, fearless, iTunesLive]
+
+/*
+class Album {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func getPerformance() -> String {
+        return "The album \(name) sold lots"
+    }
+}
+
+class StudioAlbum: Album {
+    var studio: String
+    
+    init(name: String, studio: String) {
+        self.studio = studio
+        super.init(name: name)
+    }
+    
+    override func getPerformance() -> String {
+        return "The studio album \(name) sold lots"
+    }
+}
+
+class LiveAlbum: Album {
+    var location: String
+    
+    init(name: String, location: String) {
+        self.location = location
+        super.init(name: name)
+    }
+    
+    override func getPerformance() -> String {
+        return "The live album \(name) sold lots"
+    }
+}
+
+
+var taylorSwift = StudioAlbum(name: "Taylor Swift", studio: "The Castles Studios")
+var fearless = StudioAlbum(name: "Speak Now", studio: "Aimeeland Studio")
+var iTunesLive = LiveAlbum(name: "iTunes Live from SoHo", location: "New York")
+
+var allAlbums: [Album] = [taylorSwift, fearless, iTunesLive]
+
+for album in allAlbums {
+    print(album.getPerformance())
+}
+*/
+
+//Closures
+//https://www.hackingwithswift.com/read/0/21/closures
+let vw = UIView()
+
+UIView.animate(withDuration: 0.5, animations: {
+    vw.alpha = 0
+})
