@@ -1,0 +1,59 @@
+//: Playground - noun: a place where people can play
+
+import UIKit
+
+var str = "Hello, playground"
+print(str)
+str = "pritesh"
+print(str)
+let s = 100
+print(s)
+var s2:Double=200;
+print(s2)
+
+s2 = 400.90
+
+print(s2)
+print(str.uppercased())
+print(str.lowercased())
+if 1==1 {
+    print("I am true")
+}else
+{
+ print("I am false")
+}
+
+let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
+messageLabel.text = str
+messageLabel
+
+messageLabel.backgroundColor = UIColor.orange
+messageLabel.textAlignment = NSTextAlignment.center
+messageLabel.layer.cornerRadius = 10.0
+messageLabel.clipsToBounds = true
+messageLabel
+
+var x = "12"
+var y = "10"
+var c  = (x as NSString).integerValue + (y as NSString).integerValue
+print(c)
+
+let date = Date()
+let calendar = Calendar.current
+let hour = calendar.component(.hour, from: date)
+let minutes = calendar.component(.minute, from: date)
+
+let month = calendar.component(.month, from: date)
+let day = calendar.component(.day, from: date)
+
+
+
+// (1):
+let pat = "\\b([a-z])\\.([a-z]{2,})@([a-z]+)\\.ac\\.uk\\b"
+// (2):
+let testStr = "x.wu@strath.ac.uk, ak123@hotmail.com     e1s59@oxford.ac.uk, ee123@cooleng.co.uk, a.khan@surrey.ac.uk"
+// (3):
+let regex = try! NSRegularExpression(pattern: pat, options: [])
+// (4):
+//let matches = regex.matches(in: testStr, options: [], range: NSRange(location: 0, length: testStr.characters.count))
+
