@@ -495,3 +495,18 @@ let vw = UIView()
 UIView.animate(withDuration: 0.5, animations: {
     vw.alpha = 0
 })
+
+let π = 3.14159
+let 你好 = "你好世界"
+let 🐶🐮 = "dogcow"
+
+var t : NSDictionary!
+//t.setValue("Pritesh", forKey: "name")
+
+let dictionary: NSDictionary = [
+    "anObject" : person,
+    "helloString" : "Hello, World!",
+    "magicNumber" : 42,
+    "aValue" : people
+]
+print(dictionary.value(forKey: "helloString")!)
