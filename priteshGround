@@ -510,3 +510,25 @@ let dictionary: NSDictionary = [
     "aValue" : people
 ]
 print(dictionary.value(forKey: "helloString")!)
+
+//------------------- Arithmetic Operations Added -----------------
+///Shift operators
+1<<2
+2>>1
+sin(45 * Double.pi / 180)
+// 0.7071067811865475
+
+cos(135 * Double.pi / 180)
+// -0.7071067811865475
+
+sqrt(49)
+// 7
+
+max(5, 10)
+// 10
+
+max(sqrt(2.0), Double.pi / 2)
+// 1.570796326794897
+
+min(-5, -10)
+// -10
