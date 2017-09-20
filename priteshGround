@@ -532,3 +532,67 @@ max(sqrt(2.0), Double.pi / 2)
 
 min(-5, -10)
 // -10
+
+
+//------------------- JSON Code Added -----------------
+class Tutorial: Codable {
+    let title: String
+    let author: String
+    let editor: String
+    let type: String
+    let publishDate: Date
+    
+    init(title: String, author: String, editor: String, type: String, publishDate: Date) {
+        self.title = title
+        self.author = author
+        self.editor = editor
+        self.type = type
+        self.publishDate = publishDate
+    }
+}
+
+let tutorial = Tutorial(title: "What's New in Swift 4?", author: "Cosmin Pupăză", editor: "Simon Ng", type: "Swift", publishDate: Date())
+
+let encoder = JSONEncoder()
+let data = try encoder.encode(tutorial)
+let string = String(data: data, encoding: .utf8)
+
+let decoder = JSONDecoder()
+let article = try decoder.decode(Tutorial.self, from: data)
+let info = "\(article.title) \(article.author) \(article.editor) \(article.type) \(article.publishDate)"
+
+//2
+
+class Author {
+    let name: String
+    let tutorial: Tutorial
+    
+    init(name: String, tutorial: Tutorial) {
+        self.name = name
+        self.tutorial = tutorial
+    }
+}
+let author = Author(name: "Cosmin Pupăză", tutorial: tutorial)
+
+let authorNameKeyPath = \Author.name
+let authorName = author[keyPath: authorNameKeyPath]
+
+let authorTutorialTitleKeyPath = \Author.tutorial.title
+let authorTutorialTitle = author[keyPath: authorTutorialTitleKeyPath]
+
+let authorTutorialKeyPath = \Author.tutorial
+let authorTutorialNameKeyPath = authorTutorialKeyPath.appending(path: \.title)
+let authorTutorialName = author[keyPath: authorTutorialNameKeyPath]
+
+//3
+class JukeBox {
+    var song: String
+    
+    init(song: String) {
+        self.song = song
+    }
+}
+
+let jukeBox = JukeBox(song: "Nothing else matters")
+let jukeBoxSongKeyPath = \JukeBox.song
+jukeBox[keyPath: jukeBoxSongKeyPath] = "Stairway to heaven"
