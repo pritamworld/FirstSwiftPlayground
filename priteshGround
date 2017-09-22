@@ -649,3 +649,56 @@ case .rainy(let inchesPerHour):
 case .cloudy(let cloudType, let windSpeed):
     print("It is cloudy; there are \(cloudType) clouds in the sky, and the wind speed is \(windSpeed).")
 }
+
+
+//---------- Change from here ----------
+for chr in "Welcome" {
+    print(chr)
+}
+
+var value = 60
+
+switch value
+{
+    case 60 :
+        print( "Value of index is 60")
+        fallthrough
+    case 20,30 :
+        print( "the value is either 20 or 30")
+        //fallthrough
+    case 40 :
+        print( "The value is 40")
+    default :
+       print( "Wrong Case Input")
+}
+
+//----------- Closures Code added -----------
+//1
+let studname = { print("Welcome to Swift Closures") }
+studname()
+
+//2
+let divide = {(val1: Int, val2: Int) -> Int in
+    return val1 / val2
+}
+let result = divide(200, 20)
+print(result)
+
+//3
+func ascend(s1: String, s2: String) -> Bool {
+    return s1 > s2
+}
+let stringcmp = ascend(s1: "swift", s2: "great")
+print(stringcmp)
+
+//4
+let sum = {(no1: Int, no2: Int) -> Int in
+    return no1 + no2
+}
+let digits = sum(10, 20)
+print(digits)
+
+//5
+var shorthand: (String, String) -> String
+shorthand = { $1 }
+print(shorthand("100", "200"))
