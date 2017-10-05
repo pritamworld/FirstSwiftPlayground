@@ -1,0 +1,13 @@
+class MySingleton {
+    private static let sharedInstance = MySingleton()
+    private init() {}
+    public static func getInstance() -> MySingleton {
+        return sharedInstance
+    }
+    
+    var state = 0
+    public func DoSomething() {
+        self.state+=1
+        print("Doing something for the \(self.state) time")
+    }
+}
